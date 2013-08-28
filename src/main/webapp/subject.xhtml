@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title>Practica</title>
+</h:head>
+<h:body>
+<h:form>
+	<table>
+		<tr>
+			<td>Fachname :</td>
+			<td><p:inputText value="#{subject.subjectName}" /></td>
+		</tr>
+		<tr>
+			<td>Studiengang :</td>
+			<td><p:inputText value="#{subject.studyCourse}" /></td>
+		</tr>
+		<tr>
+			<td><p:commandButton value="Eingegebenes Anzeigen" action="anzeigen" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><p:commandButton actionListener="#{subjectCon.add()}" value="Fach speichern" /></td>
+		</tr>
+	</table>
+	
+	<!--  hier wollte ich testen eine methode mit einem button aufzurufen -->
+	<p:panel id="panel" header="New test" style="margin-bottom:10px;">  
+        <p:messages id="messages" />  
+        <h:panelGrid columns="2">  
+            <h:outputLabel for="text" value="testtext: *" />  
+            <p:inputText id="text"   
+                value="#{subjectCon.buttontestfield}" required="true" label="Text">  
+                <f:validateLength minimum="2" />  
+            </p:inputText> 
+  
+        </h:panelGrid>  
+    </p:panel>  
+	<p:commandButton actionListener="#{subjectCon.buttontest()}" value="test mich" ajax="false" />
+	
+	
+	<p:panel id="display" header="Information" style="margin-top:10px;">  
+        <h:panelGrid columns="2">  
+            <h:outputText value="test: " />  
+            <h:outputText value="#{subjectCon.buttontestfield}" />
+        </h:panelGrid>  
+    </p:panel>
+</h:form>
+
+
+
+
+</h:body>
+
+</html>
